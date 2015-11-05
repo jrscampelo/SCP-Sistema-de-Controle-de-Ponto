@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Bolsista'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Cadastrar Bolsista'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -28,11 +28,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'idBolsista',
             'nome',
             'sobrenome',
+            'turno',
             'matricula',
-            'senha',
-            // 'login',
+            // 'horas_trabalhadas',
             // 'idTutor',
-            // 'idHorario_Trabalho',
             // 'idLocal_Trabalho',
 
             ['class' => 'yii\grid\ActionColumn'],

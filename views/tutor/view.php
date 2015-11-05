@@ -31,9 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'idTutor',
             'siap',
             'nome',
-            'sobrenome',
-            'senha',
-            'login',
+            'username',
+            'password',
+            'idLocal_Trabalho_Tutor',
+            'auth_key',
+            'access_token',
+            'password_reset_token',
         ],
     ]) ?>
 

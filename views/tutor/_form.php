@@ -1,7 +1,9 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use kartik\widgets\ActiveForm;
+use kartik\builder\Form;
+use yii\widgets\MaskedInput;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Tutor */
@@ -14,13 +16,19 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'siap')->textInput(['maxlength' => 15]) ?>
 
-    <?= $form->field($model, 'nome')->textInput(['maxlength' => 45]) ?>
+    <?= $form->field($model, 'nome')->textInput(['maxlength' => 200]) ?>
 
-    <?= $form->field($model, 'sobrenome')->textInput(['maxlength' => 45]) ?>
+    <?= Form::widget([
+        'model'=> $model,
+        'form'=> $form,
+        'columns' => 2,
+        'attributes' => [
+            'username' => ['type'=>Form::INPUT_TEXT],
+            'password' => ['type'=>Form::INPUT_PASSWORD],
+        ],
+    ]) ?>
 
-    <?= $form->field($model, 'senha')->textInput(['maxlength' => 45]) ?>
-
-    <?= $form->field($model, 'login')->textInput(['maxlength' => 45]) ?>
+    <?= $form->field($model, 'idLocal_Trabalho_Tutor')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

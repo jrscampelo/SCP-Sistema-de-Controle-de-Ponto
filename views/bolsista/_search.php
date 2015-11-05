@@ -21,20 +21,18 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'sobrenome') ?>
 
+    <?= $form->field($model, 'turno') ?>
+
     <?= $form->field($model, 'matricula') ?>
 
-    <?= $form->field($model, 'senha') ?>
-
-    <?php // echo $form->field($model, 'login') ?>
+    <?php // echo $form->field($model, 'horas_trabalhadas') ?>
 
     <?php // echo $form->field($model, 'idTutor') ?>
-
-    <?php // echo $form->field($model, 'idHorario_Trabalho') ?>
 
     <?php // echo $form->field($model, 'idLocal_Trabalho') ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Pesquisar'), ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
     </div>
 

@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Bolsista */
 
-$this->title = Yii::t('app', 'Create Bolsista');
+$this->title = Yii::t('app', 'Cadastrar Bolsista');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Bolsistas'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

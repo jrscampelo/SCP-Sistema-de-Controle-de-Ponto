@@ -16,20 +16,18 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'sobrenome')->textInput(['maxlength' => 45]) ?>
 
+    <?= $form->field($model, 'turno')->textInput(['maxlength' => 45]) ?>
+
     <?= $form->field($model, 'matricula')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'senha')->textInput(['maxlength' => 45]) ?>
-
-    <?= $form->field($model, 'login')->textInput(['maxlength' => 45]) ?>
+    <?= $form->field($model, 'horas_trabalhadas')->textInput() ?>
 
     <?= $form->field($model, 'idTutor')->textInput() ?>
-
-    <?= $form->field($model, 'idHorario_Trabalho')->textInput() ?>
 
     <?= $form->field($model, 'idLocal_Trabalho')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Cadastrar') : Yii::t('app', 'Alterar'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

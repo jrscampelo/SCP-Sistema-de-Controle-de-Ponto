@@ -5,12 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Bolsista */
 
-$this->title = Yii::t('app', 'Update {modelClass}: ', [
+$this->title = Yii::t('app', 'Alterar {modelClass}: ', [
     'modelClass' => 'Bolsista',
 ]) . ' ' . $model->idBolsista;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Bolsistas'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->idBolsista, 'url' => ['view', 'id' => $model->idBolsista]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('app', 'Alterar');
 ?>
 <div class="bolsista-update">
 

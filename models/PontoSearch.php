@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Tutor;
+use app\models\Ponto;
 
 /**
- * TutorSearch represents the model behind the search form about `app\models\Tutor`.
+ * PontoSearch represents the model behind the search form about `app\models\Ponto`.
  */
-class TutorSearch extends Tutor
+class PontoSearch extends Ponto
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class TutorSearch extends Tutor
     public function rules()
     {
         return [
-            [['idTutor', 'idLocal_Trabalho_Tutor'], 'integer'],
-            [['siap', 'nome', 'username', 'password', 'auth_key', 'access_token', 'password_reset_token'], 'safe'],
+            [['idPonto_Eletronico', 'idBolsista'], 'integer'],
+            [['data', 'hora', 'Estado', 'tipoFrequencia'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class TutorSearch extends Tutor
      */
     public function search($params)
     {
-        $query = Tutor::find();
+        $query = Ponto::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -56,17 +56,14 @@ class TutorSearch extends Tutor
         }
 
         $query->andFilterWhere([
-            'idTutor' => $this->idTutor,
-            'idLocal_Trabalho_Tutor' => $this->idLocal_Trabalho_Tutor,
+            'idPonto_Eletronico' => $this->idPonto_Eletronico,
+            'data' => $this->data,
+            'hora' => $this->hora,
+            'idBolsista' => $this->idBolsista,
         ]);
 
-        $query->andFilterWhere(['like', 'siap', $this->siap])
-            ->andFilterWhere(['like', 'nome', $this->nome])
-            ->andFilterWhere(['like', 'username', $this->username])
-            ->andFilterWhere(['like', 'password', $this->password])
-            ->andFilterWhere(['like', 'auth_key', $this->auth_key])
-            ->andFilterWhere(['like', 'access_token', $this->acess_token])
-            ->andFilterWhere(['like', 'password_reset_token', $this->password_reset_token]);
+        $query->andFilterWhere(['like', 'Estado', $this->Estado])
+            ->andFilterWhere(['like', 'tipoFrequencia', $this->tipoFrequencia]);
 
         return $dataProvider;
     }

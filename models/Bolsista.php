@@ -10,16 +10,15 @@ use Yii;
  * @property integer $idBolsista
  * @property string $nome
  * @property string $sobrenome
+ * @property string $turno
  * @property string $matricula
- * @property string $senha
- * @property string $login
+ * @property integer $horas_trabalhadas
  * @property integer $idTutor
- * @property integer $idHorario_Trabalho
  * @property integer $idLocal_Trabalho
  *
- * @property HorarioTrabalho $idHorarioTrabalho
  * @property LocalTrabalho $idLocalTrabalho
  * @property Tutor $idTutor0
+ * @property PontoEletronico[] $pontoEletronicos
  */
 class Bolsista extends \yii\db\ActiveRecord
 {
@@ -37,9 +36,9 @@ class Bolsista extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['idTutor', 'idHorario_Trabalho', 'idLocal_Trabalho'], 'integer'],
+            [['horas_trabalhadas', 'idTutor', 'idLocal_Trabalho'], 'integer'],
             [['nome'], 'string', 'max' => 50],
-            [['sobrenome', 'matricula', 'senha', 'login'], 'string', 'max' => 45]
+            [['sobrenome', 'turno', 'matricula'], 'string', 'max' => 45]
         ];
     }
 
@@ -52,21 +51,12 @@ class Bolsista extends \yii\db\ActiveRecord
             'idBolsista' => Yii::t('app', 'Id Bolsista'),
             'nome' => Yii::t('app', 'Nome'),
             'sobrenome' => Yii::t('app', 'Sobrenome'),
+            'turno' => Yii::t('app', 'Turno'),
             'matricula' => Yii::t('app', 'Matricula'),
-            'senha' => Yii::t('app', 'Senha'),
-            'login' => Yii::t('app', 'Login'),
+            'horas_trabalhadas' => Yii::t('app', 'Horas Trabalhadas'),
             'idTutor' => Yii::t('app', 'Id Tutor'),
-            'idHorario_Trabalho' => Yii::t('app', 'Id Horario  Trabalho'),
             'idLocal_Trabalho' => Yii::t('app', 'Id Local  Trabalho'),
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getIdHorarioTrabalho()
-    {
-        return $this->hasOne(HorarioTrabalho::className(), ['idHorario_Trabalho' => 'idHorario_Trabalho']);
     }
 
     /**
@@ -83,5 +73,13 @@ class Bolsista extends \yii\db\ActiveRecord
     public function getIdTutor0()
     {
         return $this->hasOne(Tutor::className(), ['idTutor' => 'idTutor']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPontoEletronicos()
+    {
+        return $this->hasMany(PontoEletronico::className(), ['idBolsista' => 'idBolsista']);
     }
 }

@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\LocalTrabalhoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Local Trabalhos');
+$this->title = Yii::t('app', 'Locais de Trabalho');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="local-trabalho-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Local Trabalho'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Cadastrar Local de Trabalho'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([

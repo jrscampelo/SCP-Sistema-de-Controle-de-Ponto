@@ -21,11 +21,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nome') ?>
 
-    <?= $form->field($model, 'sobrenome') ?>
+    <?= $form->field($model, 'username') ?>
 
-    <?= $form->field($model, 'senha') ?>
+    <?= $form->field($model, 'password') ?>
 
-    <?php // echo $form->field($model, 'login') ?>
+    <?php // echo $form->field($model, 'idLocal_Trabalho_Tutor') ?>
+
+    <?php // echo $form->field($model, 'auth_key') ?>
+
+    <?php // echo $form->field($model, 'access_token') ?>
+
+    <?php // echo $form->field($model, 'password_reset_token') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
