@@ -9,8 +9,8 @@ use Yii;
  *
  * @property integer $idPonto_Eletronico
  * @property string $data
- * @property string $hora
- * @property string $Estado
+ * @property string $hora_Chegada
+ * @property string $hora_saida
  * @property string $tipoFrequencia
  * @property integer $idBolsista
  *
@@ -32,9 +32,9 @@ class Ponto extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['data', 'hora'], 'safe'],
+            [['data', 'hora_Chegada', 'hora_saida'], 'safe'],
             [['idBolsista'], 'integer'],
-            [['Estado', 'tipoFrequencia'], 'string', 'max' => 45]
+            [['tipoFrequencia'], 'string', 'max' => 45]
         ];
     }
 
@@ -46,18 +46,19 @@ class Ponto extends \yii\db\ActiveRecord
         return [
             'idPonto_Eletronico' => Yii::t('app', 'Id Ponto  Eletronico'),
             'data' => Yii::t('app', 'Data'),
-            'hora' => Yii::t('app', 'Hora'),
-            'Estado' => Yii::t('app', 'Estado'),
-            'tipoFrequencia' => Yii::t('app', 'Tipo Frequencia'),
-            'idBolsista' => Yii::t('app', 'Id Bolsista'),
+            'hora_Chegada' => Yii::t('app', 'Hora'),
+            'hora_saida' => Yii::t('app', 'Hora Saida'),
+            'tipoFrequencia' => Yii::t('app', 'Tipo de Frequencia'),
+            'idBolsista' => Yii::t('app', 'Bolsista'),
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdBolsista0()
+    public function getBolsistaIdBolsista()
     {
-        return $this->hasOne(Bolsista::className(), ['idBolsista' => 'idBolsista']);
+        return $this->hasOne(Bolsista::className(), ['nome_bolsista' => 'nome']);
     }
+
 }

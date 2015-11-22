@@ -19,7 +19,7 @@ class PontoSearch extends Ponto
     {
         return [
             [['idPonto_Eletronico', 'idBolsista'], 'integer'],
-            [['data', 'hora', 'Estado', 'tipoFrequencia'], 'safe'],
+            [['data', 'hora_Chegada', 'hora_saida', 'tipoFrequencia'], 'safe'],
         ];
     }
 
@@ -56,14 +56,14 @@ class PontoSearch extends Ponto
         }
 
         $query->andFilterWhere([
-            'idPonto_Eletronico' => $this->idPonto_Eletronico,
+            //'idPonto_Eletronico' => $this->idPonto_Eletronico,
             'data' => $this->data,
-            'hora' => $this->hora,
+            'hora_Chegada' => $this->hora_Chegada,
+            'hora_saida' => $this->hora_saida,
             'idBolsista' => $this->idBolsista,
         ]);
 
-        $query->andFilterWhere(['like', 'Estado', $this->Estado])
-            ->andFilterWhere(['like', 'tipoFrequencia', $this->tipoFrequencia]);
+        $query->andFilterWhere(['like', 'tipoFrequencia', $this->tipoFrequencia]);
 
         return $dataProvider;
     }

@@ -19,8 +19,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nome') ?>
 
-    <?= $form->field($model, 'sobrenome') ?>
-
     <?= $form->field($model, 'turno') ?>
 
     <?= $form->field($model, 'matricula') ?>

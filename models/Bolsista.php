@@ -38,7 +38,7 @@ class Bolsista extends \yii\db\ActiveRecord
         return [
             [['horas_trabalhadas', 'idTutor', 'idLocal_Trabalho'], 'integer'],
             [['nome'], 'string', 'max' => 50],
-            [['sobrenome', 'turno', 'matricula'], 'string', 'max' => 45]
+            [['turno', 'matricula'], 'string', 'max' => 45]
         ];
     }
 
@@ -50,7 +50,6 @@ class Bolsista extends \yii\db\ActiveRecord
         return [
             'idBolsista' => Yii::t('app', 'Id Bolsista'),
             'nome' => Yii::t('app', 'Nome'),
-            'sobrenome' => Yii::t('app', 'Sobrenome'),
             'turno' => Yii::t('app', 'Turno'),
             'matricula' => Yii::t('app', 'Matricula'),
             'horas_trabalhadas' => Yii::t('app', 'Horas Trabalhadas'),
@@ -80,6 +79,6 @@ class Bolsista extends \yii\db\ActiveRecord
      */
     public function getPontoEletronicos()
     {
-        return $this->hasMany(PontoEletronico::className(), ['idBolsista' => 'idBolsista']);
+        return $this->hasMany(PontoEletronico::className(), ['nome_bolsista' => 'nome']);
     }
 }

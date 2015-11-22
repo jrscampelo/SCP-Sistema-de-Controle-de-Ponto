@@ -14,24 +14,32 @@ use yii\widgets\MaskedInput;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'siap')->textInput(['maxlength' => 15]) ?>
+    <div class="row">
+        <div class="col-md-4"><?= $form->field($model, 'siap')->textInput(['maxlength' => 15]) ?></div>
+    </div>
 
-    <?= $form->field($model, 'nome')->textInput(['maxlength' => 200]) ?>
+    <div class="row">
+        <div class="col-md-4"><?= $form->field($model, 'nome')->textInput(['maxlength' => 200]) ?></div>
+    </div>
 
-    <?= Form::widget([
-        'model'=> $model,
-        'form'=> $form,
-        'columns' => 2,
-        'attributes' => [
-            'username' => ['type'=>Form::INPUT_TEXT],
-            'password' => ['type'=>Form::INPUT_PASSWORD],
-        ],
-    ]) ?>
+    <div class="row">
+        <div class="col-md-4"><?= Form::widget([
+            'model'=> $model,
+            'form'=> $form,
+            'columns' => 2,
+            'attributes' => [
+                'username' => ['type'=>Form::INPUT_TEXT],
+                'password' => ['type'=>Form::INPUT_PASSWORD],
+            ],
+        ]) ?></div>
+    </div>
 
-    <?= $form->field($model, 'idLocal_Trabalho_Tutor')->textInput() ?>
+    <div class="row">
+        <div class="col-md-4"><?= $form->field($model, 'idLocal_Trabalho_Tutor')->textInput() ?></div>
+    </div>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Cadastrar') : Yii::t('app', 'Atualizar'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

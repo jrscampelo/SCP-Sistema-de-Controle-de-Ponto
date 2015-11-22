@@ -32,21 +32,36 @@ AppAsset::register($this);
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => [
-                    ['label' => 'Home', 'url' => ['/site/index']],
-                    ['label' => 'Bolsistas', 'url' => ['/bolsista/index']],
-                    ['label' => 'Tutores', 'url' => ['/tutor/index']],
-                    ['label' => 'Locais de Trabalho', 'url' => ['/localtrabalho/index']],
-                    //['label' => 'Cadastrar', 'url' => ['/user/index']],
-                    Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['/site/login']] :
-                        ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                            'url' => ['/site/logout'],
-                            'linkOptions' => ['data-method' => 'post']],
-                ],
-            ]);
+            if(Yii::$app->user->isGuest){
+                echo Nav::widget([
+                    'options' => ['class' => 'navbar-nav navbar-right'],
+                    'items' => [
+                        ['label' => 'Home', 'url' => ['/site/index']],
+                        ['label' => 'Cadastrar', 'url' => ['/tutor/create']],
+                        Yii::$app->user->isGuest ?
+                            ['label' => 'Login', 'url' => ['/site/login']] :
+                            ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                                'url' => ['/site/logout'],
+                                'linkOptions' => ['data-method' => 'post']],
+                    ],
+                ]);
+            }else{
+                    echo Nav::widget([
+                    'options' => ['class' => 'navbar-nav navbar-right'],
+                    'items' => [
+                        ['label' => 'Home', 'url' => ['/site/index']],
+                        ['label' => 'Bolsistas', 'url' => ['/bolsista/index']],
+                        ['label' => 'Tutores', 'url' => ['/tutor/index']],
+                        ['label' => 'Locais de Trabalho', 'url' => ['/localtrabalho/index']],
+                        ['label' => 'Bater Ponto', 'url' => ['/ponto/create']],
+                        Yii::$app->user->isGuest ?
+                            ['label' => 'Login', 'url' => ['/site/login']] :
+                            ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                                'url' => ['/site/logout'],
+                                'linkOptions' => ['data-method' => 'post']],
+                    ],
+                ]);
+                }
             NavBar::end();
         ?>
 

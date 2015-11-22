@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\TutorSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Tutors');
+$this->title = Yii::t('app', 'Tutores');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tutor-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Tutor'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Cadastrar Tutor'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,11 +25,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'idTutor',
+            //'idTutor',
             'siap',
             'nome',
-            'username',
-            'password',
+            //'username',
+            //'password',
             // 'idLocal_Trabalho_Tutor',
             // 'auth_key',
             // 'access_token',

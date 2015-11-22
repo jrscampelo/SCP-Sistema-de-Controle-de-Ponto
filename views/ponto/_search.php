@@ -19,13 +19,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'data') ?>
 
-    <?= $form->field($model, 'hora') ?>
-
-    <?= $form->field($model, 'Estado') ?>
+    <?= $form->field($model, 'hora_Chegada') ?>
 
     <?= $form->field($model, 'tipoFrequencia') ?>
 
-    <?php // echo $form->field($model, 'idBolsista') ?>
+    <?= $form->field($model, 'nome_bolsista') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>

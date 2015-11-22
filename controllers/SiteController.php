@@ -68,6 +68,22 @@ class SiteController extends Controller
         }
     }
 
+     public function actionLoginPonto()
+    {
+        if (!\Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $model = new LoginFormPonto();
+        if ($model->load(Yii::$app->request->post()) && $model->loginPonto()) {
+            return $this->goBack();
+        } else {
+            return $this->render('login', [
+                'model' => $model,
+            ]);
+        }
+    }
+
     public function actionLogout()
     {
         Yii::$app->user->logout();

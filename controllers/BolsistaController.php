@@ -8,6 +8,8 @@ use app\models\BolsistaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\db\Query;
+use yii\helpers\Json;
 
 /**
  * BolsistaController implements the CRUD actions for Bolsista model.
@@ -103,6 +105,29 @@ class BolsistaController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionList($search = null, $id = null) {
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $out = ['more' => false];
+        if (!is_null($search)) {
+            $query = new Query;
+            $query->select(['idBolsista AS id', 'nome AS text'])
+                ->from('bolsista')
+                //->where(['like', 'nome', $search])
+                ->where('nome LIKE "%'.$search.'%"')
+                ->limit(20);
+            $command = $query->createCommand();
+            $data = $command->queryAll();
+            $out['results'] = array_values($data);
+        }
+        elseif ($id > 0) {
+            $out['results'] = ['id' => $id, 'text' => Bolsista::findOne($id)->nome];
+        }
+        else{
+            $out['results'] = ['id' => 0, 'text' => 'Nenhum resultado encontrado.'];   
+        }
+        echo Json::encode($out);
+    }
+    
     /**
      * Finds the Bolsista model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

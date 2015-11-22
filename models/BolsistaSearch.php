@@ -19,7 +19,7 @@ class BolsistaSearch extends Bolsista
     {
         return [
             [['idBolsista', 'horas_trabalhadas', 'idTutor', 'idLocal_Trabalho'], 'integer'],
-            [['nome', 'sobrenome', 'turno', 'matricula'], 'safe'],
+            [['nome', 'turno', 'matricula'], 'safe'],
         ];
     }
 
@@ -63,7 +63,6 @@ class BolsistaSearch extends Bolsista
         ]);
 
         $query->andFilterWhere(['like', 'nome', $this->nome])
-            ->andFilterWhere(['like', 'sobrenome', $this->sobrenome])
             ->andFilterWhere(['like', 'turno', $this->turno])
             ->andFilterWhere(['like', 'matricula', $this->matricula]);
 
