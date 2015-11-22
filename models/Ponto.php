@@ -58,7 +58,7 @@ class Ponto extends \yii\db\ActiveRecord
      */
     public function getBolsistaIdBolsista()
     {
-        return $this->hasOne(Bolsista::className(), ['nome_bolsista' => 'nome']);
+        return $this->hasOne(Bolsista::className(), ['idBolsista' => 'idBolsista']);
     }
 
 }

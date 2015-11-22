@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'hora_Chegada',
             //'hora_saida',
             'tipoFrequencia',
-            'nome_bolsista',
+            'idBolsista',
         ],
     ]) ?>
 
