@@ -34,10 +34,6 @@ use yii\widgets\MaskedInput;
         ]) ?></div>
     </div>
 
-    <div class="row">
-        <div class="col-md-4"><?= $form->field($model, 'idLocal_Trabalho_Tutor')->textInput() ?></div>
-    </div>
-
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Cadastrar') : Yii::t('app', 'Atualizar'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

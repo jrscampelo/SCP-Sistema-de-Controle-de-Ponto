@@ -5,12 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\LocalTrabalho */
 
-$this->title = Yii::t('app', 'Alterar {modelClass}: ', [
+$this->title = Yii::t('app', 'Update {modelClass}: ', [
     'modelClass' => 'Local Trabalho',
 ]) . ' ' . $model->idLocal_Trabalho;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Local de Trabalho'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Local Trabalhos'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->idLocal_Trabalho, 'url' => ['view', 'id' => $model->idLocal_Trabalho]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Alterar');
+$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="local-trabalho-update">
 

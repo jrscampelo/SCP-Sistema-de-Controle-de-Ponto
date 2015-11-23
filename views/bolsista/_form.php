@@ -2,10 +2,15 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\Url;
+use yii\web\JsExpression;
+use kartik\widgets\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Bolsista */
 /* @var $form yii\widgets\ActiveForm */
+$url_tutor = Url::to(['tutor/list']);
+$url_tutor = Url::to(['local-trabalho/list']);
 ?>
 
 <div class="bolsista-form">
@@ -17,7 +22,9 @@ use yii\widgets\ActiveForm;
     </div>
 
     <div class="row">
-        <div class="col-md-4"><?= $form->field($model, 'turno')->textInput(['maxlength' => 45]) ?></div>
+        <div class="col-md-4">
+            <?= $form->field($model, 'turno')->dropDownList(['Matutino' => 'Matutino', 'Vespertino' => 'Vespertino', 'Noturno'=>'Noturno' ], ['prompt' => ''])?>
+        </div>
     </div>
 
     <div class="row">
@@ -25,11 +32,22 @@ use yii\widgets\ActiveForm;
     </div>
 
     <div class="row">
-        <div class="col-md-4"><?= $form->field($model, 'idTutor')->textInput() ?></div>
+        <div class="col-md-4">
+        <?= $form->field($model, 'idTutor')->widget(Select2::classname(),[
+        'options' => ['placeholder'=>'Selecione o bolsista...'],
+        'pluginOptions' => [
+            'allowClear' => true,
+            'minimumInputLength' => 1,
+            'ajax' => [
+                'url' => $url_tutor,
+                'dataType' => 'json',
+                'data' => new JsExpression('function(params) { return {search:params.term};}')
+            ],
+        ],
+        ]) ?></div>
     </div>
 
-    <div class="row">
-        <div class="col-md-4"><?= $form->field($model, 'idLocal_Trabalho')->textInput() ?></div>
+    </div>
     </div>
 
     <div class="form-group">

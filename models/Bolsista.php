@@ -53,7 +53,7 @@ class Bolsista extends \yii\db\ActiveRecord
             'turno' => Yii::t('app', 'Turno'),
             'matricula' => Yii::t('app', 'Matricula'),
             'horas_trabalhadas' => Yii::t('app', 'Horas Trabalhadas'),
-            'idTutor' => Yii::t('app', 'Id Tutor'),
+            'idTutor' => Yii::t('app', 'Tutor'),
             'idLocal_Trabalho' => Yii::t('app', 'Id Local  Trabalho'),
         ];
     }

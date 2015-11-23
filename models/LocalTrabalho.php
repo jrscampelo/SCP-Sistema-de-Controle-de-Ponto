@@ -11,6 +11,7 @@ use Yii;
  * @property string $nome
  *
  * @property Bolsista[] $bolsistas
+ * @property Tutor[] $tutors
  */
 class LocalTrabalho extends \yii\db\ActiveRecord
 {
@@ -49,5 +50,13 @@ class LocalTrabalho extends \yii\db\ActiveRecord
     public function getBolsistas()
     {
         return $this->hasMany(Bolsista::className(), ['idLocal_Trabalho' => 'idLocal_Trabalho']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTutors()
+    {
+        return $this->hasMany(Tutor::className(), ['idLocal_Trabalho_Tutor' => 'idLocal_Trabalho']);
     }
 }

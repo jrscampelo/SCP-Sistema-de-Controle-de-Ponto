@@ -52,8 +52,9 @@ AppAsset::register($this);
                         ['label' => 'Home', 'url' => ['/site/index']],
                         ['label' => 'Bolsistas', 'url' => ['/bolsista/index']],
                         ['label' => 'Tutores', 'url' => ['/tutor/index']],
-                        ['label' => 'Locais de Trabalho', 'url' => ['/localtrabalho/index']],
+                        //['label' => 'Locais de Trabalho', 'url' => ['/localtrabalho/index']],
                         ['label' => 'Bater Ponto', 'url' => ['/ponto/create']],
+                        ['label' => 'Relatorio de Pontos', 'url' => ['/ponto/index']],
                         Yii::$app->user->isGuest ?
                             ['label' => 'Login', 'url' => ['/site/login']] :
                             ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
